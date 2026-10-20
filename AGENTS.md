@@ -51,7 +51,7 @@ import "@stack48/admin-ui/styles.css";
 import { Button } from "@stack48/admin-ui/primitives";
 import { AppShell } from "@stack48/admin-ui/admin";
 import { Sparkline } from "@stack48/admin-ui/charts";
-import { ThreadList } from "@stack48/admin-ui/inbox";
+import { MessageList } from "@stack48/admin-ui/inbox";
 import { EmptyState } from "@stack48/admin-ui/states";
 
 // equivalent

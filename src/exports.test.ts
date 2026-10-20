@@ -32,6 +32,14 @@ describe("package contract", () => {
     expect(pkg.peerDependencies.tailwindcss).toMatch(/\^3/);
   });
 
+  it("re-exports the inbox kit from the root barrel", async () => {
+    const inbox = await import("./inbox");
+    expect(inbox.InboxLayout).toBeTypeOf("function");
+    expect(inbox.MessageList).toBeTypeOf("function");
+    expect(inbox.SandboxedHtml).toBeTypeOf("function");
+    expect(inbox.useInboxKeyboard).toBeTypeOf("function");
+  });
+
   it("exposes the documented subpath export map", () => {
     const keys = Object.keys(pkg.exports);
     for (const key of [
