@@ -1,0 +1,15 @@
+node_modules
+dist
+storybook-static
+coverage
+*.log
+.DS_Store
+.env
+.env.*
+!.env.example
+.vite
+.turbo
+.idea
+.vscode/*
+!.vscode/extensions.json
+*.tsbuildinfo

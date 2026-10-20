@@ -1,0 +1,31 @@
+/*
+ * Public stylesheet for apps: CSS variables + GTM base typography.
+ * Import AFTER Tailwind's base/components/utilities so body rules win.
+ *
+ *   import "@stack48/admin-ui/styles.css";
+ *
+ * Do not `@apply` here — this file is copied to dist unprocessed.
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import "./theme.css";
+
+*,
+*::before,
+*::after {
+  border-color: hsl(var(--border));
+}
+
+html {
+  font-family: var(--font-sans);
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

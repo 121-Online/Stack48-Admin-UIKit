@@ -1,0 +1,49 @@
+# Stack48 Admin UI
+
+> Presentational React + shadcn/ui kit for Stack48 internal ops dashboards. Consumed as a git dependency (`github:121-Online/Stack48-Admin-UIKit#vX.Y.Z`), not from npm. Visual source of truth: gtm.stack48.com (Inter 13px, zinc canvas, blue-500 brand, 2px radii).
+
+The kit is presentational only. Pass data via props. No Supabase, Resend, fetching, or business logic.
+
+## Docs
+
+- [README](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/README.md): git install, Tailwind preset, styles.css, first `cn()` usage
+- [AGENTS.md](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/AGENTS.md): install, theme, import map, compose folders, house style rules, token names
+- [CONTRIBUTING](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/docs/CONTRIBUTING.md): every component PR ships docs, stories, TSDoc, changeset
+- [ADOPTION](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/docs/ADOPTION.md): migrating apps (GTM dashboard and others) onto the kit
+- [CHANGELOG](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/CHANGELOG.md): semver via changesets; tags are vX.Y.Z GitHub Releases, no registry publish
+
+## Code
+
+- [src/tokens.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/tokens.ts): JS token map (zinc, brand, semantic HSL, radii, type, spacing, layout)
+- [src/styles/theme.css](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/styles/theme.css): shadcn CSS variables (`:root` and `.dark`)
+- [src/styles/styles.css](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/styles/styles.css): public stylesheet (fonts + variables + GTM body)
+- [src/preset.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/preset.ts): Tailwind v3 preset
+- [src/lib/cn.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/lib/cn.ts): `cn()` helper
+- [src/primitives](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/primitives): customised shadcn (later PR)
+- [src/admin](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/admin): shell / tables (later PR)
+- [src/charts](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/charts): charts (later PR)
+- [src/inbox](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/inbox): inbox (later PR)
+- [src/states](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/states): empty / loading / error / modals (later PR)
+
+## Imports
+
+```
+@stack48/admin-ui                 cn, tokens, preset
+@stack48/admin-ui/tokens          token objects
+@stack48/admin-ui/preset          Tailwind preset + adminUiContentGlobs
+@stack48/admin-ui/cn              cn()
+@stack48/admin-ui/styles.css      public CSS
+@stack48/admin-ui/theme.css       CSS variables only
+@stack48/admin-ui/primitives      shadcn primitives
+@stack48/admin-ui/admin           composed admin chrome
+@stack48/admin-ui/charts          charts
+@stack48/admin-ui/inbox           inbox
+@stack48/admin-ui/states          states
+@stack48/admin-ui/components/*    same namespaces via the components/* export map
+```
+
+## House style (non-negotiable)
+
+Professional ops tool. Dense. Full-width layouts. No boxy cartoon cards. Data via props. Presentational only.
+
+`--primary` is zinc-900. `--brand` / `--ring` is blue-500 (GTM `--accent`). `--radius` is 0.125rem.
