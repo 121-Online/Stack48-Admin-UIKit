@@ -8,11 +8,13 @@ import { defaultNumberFormat, type NumberFormatter } from "./format";
  */
 export type MetricStatus = "neutral" | "success" | "ok" | "warning" | "danger";
 
+/** Optional signed change shown next to a KPI value. */
 export type KpiDelta = {
   value: number;
   label?: string;
 };
 
+/** Props for {@link KpiItem}. */
 export type KpiItemProps = {
   label: string;
   value: string | number;
@@ -89,6 +91,7 @@ export function KpiItem({
   );
 }
 
+/** Props for {@link KpiStrip}. */
 export type KpiStripProps = {
   children?: ReactNode;
   /** Optional data-driven items. Rendered before `children`. */
@@ -111,6 +114,7 @@ export function KpiStrip({ children, items, className }: KpiStripProps) {
   );
 }
 
+/** Props for {@link KpiDivider}. */
 export type KpiDividerProps = {
   className?: string;
 };

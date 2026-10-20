@@ -2,6 +2,8 @@
 
 Presentational kit docs. Data and formatters arrive via props — no fetching.
 
+Index of every component doc. Import map: [`AGENTS.md`](../../AGENTS.md). App migration: [`ADOPTION.md`](../ADOPTION.md).
+
 ## Primitives (`@stack48/admin-ui/primitives`)
 
 | Component         | Docs                                         |
@@ -27,18 +29,19 @@ Presentational kit docs. Data and formatters arrive via props — no fetching.
 
 ## Admin (`@stack48/admin-ui/admin`)
 
-| Component                        | Docs                                                                         |
-| -------------------------------- | ---------------------------------------------------------------------------- |
-| `AppShell`                       | [AppShell.md](./AppShell.md)                                                 |
-| `Sidebar`                        | [Sidebar.md](./Sidebar.md)                                                   |
-| `PageHeader`                     | [PageHeader.md](./PageHeader.md)                                             |
-| `Topbar`                         | [Topbar.md](./Topbar.md)                                                     |
-| `Breadcrumbs`                    | [Breadcrumbs.md](./Breadcrumbs.md)                                           |
-| `DataTable`                      | [DataTable.md](./DataTable.md)                                               |
-| `DataTableToolbar`               | [DataTableToolbar.md](./DataTableToolbar.md)                                 |
-| `DataTablePagination`            | [DataTablePagination.md](./DataTablePagination.md)                           |
-| `FilterSelect`                   | [FilterSelect.md](./FilterSelect.md)                                         |
-| `MultiSelectFilter` / `ChipList` | [MultiSelectFilter.md](./MultiSelectFilter.md), [ChipList.md](./ChipList.md) |
+| Component                         | Docs                                                                         |
+| --------------------------------- | ---------------------------------------------------------------------------- |
+| `AppShell`                        | [AppShell.md](./AppShell.md)                                                 |
+| `Sidebar`                         | [Sidebar.md](./Sidebar.md)                                                   |
+| `PageHeader`                      | [PageHeader.md](./PageHeader.md)                                             |
+| `Topbar`                          | [Topbar.md](./Topbar.md)                                                     |
+| `Breadcrumbs`                     | [Breadcrumbs.md](./Breadcrumbs.md)                                           |
+| `DataTable`                       | [DataTable.md](./DataTable.md)                                               |
+| `Table` (primitives)              | [Table.md](./Table.md)                                                       |
+| `DataTableToolbar`                | [DataTableToolbar.md](./DataTableToolbar.md)                                 |
+| `DataTablePagination`             | [DataTablePagination.md](./DataTablePagination.md)                           |
+| `FilterSelect` / `FilterCheckbox` | [FilterSelect.md](./FilterSelect.md)                                         |
+| `MultiSelectFilter` / `ChipList`  | [MultiSelectFilter.md](./MultiSelectFilter.md), [ChipList.md](./ChipList.md) |
 
 ## Inbox (`@stack48/admin-ui/inbox`)
 
@@ -62,9 +65,25 @@ Presentational kit docs. Data and formatters arrive via props — no fetching.
 | `MetricsHeader`                       | [metrics-header.md](./metrics-header.md)             |
 | `DailyActivityChart`                  | [daily-activity-chart.md](./daily-activity-chart.md) |
 | `StackedBars`                         | [stacked-bars.md](./stacked-bars.md)                 |
-| `DeliveryFunnel`                      | [delivery-funnel.md](./delivery-funnel.md)           |
+| `DeliveryFunnel` / horizontal         | [delivery-funnel.md](./delivery-funnel.md)           |
 | `TaperedFunnel`                       | [tapered-funnel.md](./tapered-funnel.md)             |
 | `RateTrendChart` / bounce / complaint | [reputation-charts.md](./reputation-charts.md)       |
 | `WorldMap`                            | [world-map.md](./world-map.md)                       |
 
 `recharts` is an **optional peer**. Install it in the app when you use `DailyActivityChart`, `DeliveryFunnelHorizontal`, or the reputation trend charts. Sparklines, KPI chrome, CSS funnels, stacked bars, and `WorldMap` do not need it.
+
+## States (`@stack48/admin-ui/states`)
+
+| Component                           | Docs                                                   |
+| ----------------------------------- | ------------------------------------------------------ |
+| `EmptyState`                        | [EmptyState.md](./EmptyState.md)                       |
+| `LoadingState` / `Spinner`          | [LoadingState.md](./LoadingState.md)                   |
+| `ErrorState`                        | [ErrorState.md](./ErrorState.md)                       |
+| `InlineAlert` / `Banner`            | [InlineAlert.md](./InlineAlert.md)                     |
+| `StaleWarning`                      | [StaleWarning.md](./StaleWarning.md)                   |
+| `FormField`                         | [FormField.md](./FormField.md)                         |
+| `FormSection`                       | [FormSection.md](./FormSection.md)                     |
+| `ConfirmDialog`                     | [ConfirmDialog.md](./ConfirmDialog.md)                 |
+| `MultiEmailModal` (`SendTestModal`) | [MultiEmailModal.md](./MultiEmailModal.md)             |
+| `ScheduleEditor`                    | [ScheduleEditor.md](./ScheduleEditor.md)               |
+| `SendingIdentityEditor`             | [SendingIdentityEditor.md](./SendingIdentityEditor.md) |

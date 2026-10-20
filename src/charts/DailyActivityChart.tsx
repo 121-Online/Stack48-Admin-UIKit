@@ -20,11 +20,13 @@ import {
   type NumberFormatter,
 } from "./format";
 
+/** One day in {@link DailyActivityChart}. Extra keys are series values. */
 export type DailyActivityPoint = {
   date: string;
   [key: string]: string | number;
 };
 
+/** Named area/line in {@link DailyActivityChart}. */
 export type ChartSeries = {
   dataKey: string;
   name: string;
@@ -39,6 +41,7 @@ export const defaultDailyActivitySeries: ChartSeries[] = [
   { dataKey: "clicked", name: "Clicked", color: chartColors.clicked },
 ];
 
+/** Props for {@link DailyActivityChart}. */
 export type DailyActivityChartProps = {
   data: DailyActivityPoint[];
   series?: ChartSeries[];

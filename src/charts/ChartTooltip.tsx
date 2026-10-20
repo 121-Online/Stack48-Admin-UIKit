@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import { defaultNumberFormat, type NumberFormatter } from "./format";
 
+/** One series row inside {@link ChartTooltip}. */
 export type ChartTooltipItem = {
   name: string;
   value: number;

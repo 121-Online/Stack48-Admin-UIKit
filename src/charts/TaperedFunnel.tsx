@@ -6,12 +6,14 @@ import {
   type PercentFormatter,
 } from "./format";
 
+/** One trapezoid in {@link TaperedFunnel}. */
 export type TaperedFunnelStage = {
   name: string;
   value: number;
   color: string;
 };
 
+/** Props for {@link TaperedFunnel}. */
 export type TaperedFunnelProps = {
   stages: TaperedFunnelStage[];
   label?: string;

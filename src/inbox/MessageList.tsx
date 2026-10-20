@@ -1,7 +1,9 @@
 import { useEffect, useRef, type KeyboardEvent, type ReactNode } from "react";
 import { cn } from "../lib/cn";
+import { Button } from "../primitives/button";
+import { Checkbox } from "../primitives/checkbox";
+import { Input } from "../primitives/input";
 import { Chip } from "./_internal/Chip";
-import { btnPrimary, btnSecondary, inputField } from "./_internal/chrome";
 import { PaperclipIcon, RefreshIcon } from "./_internal/icons";
 import type { InboxListItem, InboxPageEvent } from "./types";
 
@@ -113,13 +115,12 @@ function MessageRow({
       tabIndex={focused ? 0 : -1}
       aria-selected={selected}
     >
-      <input
-        type="checkbox"
+      <Checkbox
         checked={selected}
         disabled={disabled}
-        onChange={() => onToggleSelect?.(item.id)}
+        onCheckedChange={() => onToggleSelect?.(item.id)}
         onClick={(event) => event.stopPropagation()}
-        className="w-4 h-4 rounded-sm flex-shrink-0 accent-brand"
+        className="flex-shrink-0"
         aria-label={`Select ${subject}`}
       />
       <div
@@ -265,9 +266,8 @@ export function MessageList({
           {searchSlot ??
             (onSearchChange ? (
               <div className="relative flex-1 min-w-[160px]">
-                <input
+                <Input
                   type="search"
-                  className={inputField}
                   placeholder={searchPlaceholder}
                   value={searchValue ?? ""}
                   onChange={(event) => onSearchChange(event.target.value)}
@@ -281,26 +281,20 @@ export function MessageList({
             ))}
           {toolbarEndSlot}
           {onRefresh ? (
-            <button
-              type="button"
-              className={cn(btnSecondary, "inline-flex items-center gap-1.5")}
-              onClick={onRefresh}
-              disabled={disabled || loading}
-            >
+            <Button variant="secondary" onClick={onRefresh} disabled={disabled || loading}>
               <RefreshIcon />
               {refreshLabel}
-            </button>
+            </Button>
           ) : null}
           {onHelp ? (
-            <button
-              type="button"
-              className={btnSecondary}
+            <Button
+              variant="secondary"
               onClick={onHelp}
               aria-label="Keyboard shortcuts"
               disabled={disabled}
             >
               ?
-            </button>
+            </Button>
           ) : null}
         </div>
       ) : null}
@@ -315,24 +309,23 @@ export function MessageList({
         <div className="flex flex-wrap items-center gap-2 border-b border-blue-100 bg-blue-50 px-3 py-2">
           <span className="text-xs font-medium text-blue-800">{selectedCount} selected</span>
           {onBulkMarkHandled ? (
-            <button
-              type="button"
-              className={cn(btnPrimary, "text-[11px]")}
+            <Button
+              size="sm"
               disabled={disabled || bulkBusy}
               onClick={() => onBulkMarkHandled(selectedIds)}
             >
               Mark handled
-            </button>
+            </Button>
           ) : null}
           {onBulkMarkUnhandled ? (
-            <button
-              type="button"
-              className={cn(btnSecondary, "text-[11px]")}
+            <Button
+              variant="secondary"
+              size="sm"
               disabled={disabled || bulkBusy}
               onClick={() => onBulkMarkUnhandled(selectedIds)}
             >
               Mark unhandled
-            </button>
+            </Button>
           ) : null}
           {bulkSlot}
         </div>
@@ -348,11 +341,9 @@ export function MessageList({
       ) : null}
 
       <div className="flex items-center gap-2 border-b border-zinc-100 px-3 py-1.5 text-caption text-muted-foreground">
-        <input
-          type="checkbox"
+        <Checkbox
           checked={allSelected}
-          onChange={() => onToggleSelectAll?.()}
-          className="w-4 h-4 rounded-sm accent-brand"
+          onCheckedChange={() => onToggleSelectAll?.()}
           aria-label="Select all on page"
           disabled={disabled || items.length === 0}
         />
@@ -388,24 +379,22 @@ export function MessageList({
       <div className="flex items-center justify-between border-t border-border px-3 py-2">
         <div className="flex items-center gap-2">
           {hasNewer ? (
-            <button
-              type="button"
-              className={cn(btnSecondary, "text-xs")}
+            <Button
+              variant="secondary"
               disabled={disabled}
               onClick={() => onPage?.({ direction: "newer", cursor: null })}
             >
               Newer
-            </button>
+            </Button>
           ) : null}
           {nextCursor ? (
-            <button
-              type="button"
-              className={cn(btnSecondary, "text-xs")}
+            <Button
+              variant="secondary"
               disabled={disabled}
               onClick={() => onPage?.({ direction: "older", cursor: nextCursor })}
             >
               {items.length === 0 ? "Load more" : "Older"}
-            </button>
+            </Button>
           ) : null}
         </div>
         <p className="text-caption text-zinc-400">

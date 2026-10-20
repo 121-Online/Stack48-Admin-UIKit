@@ -74,6 +74,7 @@
   ],
   "scripts": {
     "prepare": "node ./scripts/prepare.mjs",
+    "smoke": "node ./scripts/smoke-pack.mjs",
     "build": "tsup",
     "dev": "tsup --watch",
     "lint": "eslint .",

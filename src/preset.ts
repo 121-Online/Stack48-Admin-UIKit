@@ -119,4 +119,5 @@ const preset = {
   },
 } as const satisfies Pick<Config, "darkMode" | "content" | "theme">;
 
+/** Tailwind v3 preset. Default export of `@stack48/admin-ui/preset`. */
 export default preset;

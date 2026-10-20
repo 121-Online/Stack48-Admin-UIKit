@@ -22,6 +22,7 @@ describe("package contract", () => {
     expect(pkg.type).toBe("module");
     expect(pkg.sideEffects).toEqual(["**/*.css"]);
     expect(pkg.scripts.prepare).toContain("prepare.mjs");
+    expect(pkg.scripts.smoke).toContain("smoke-pack.mjs");
     expect(pkg.scripts.release).toContain("scripts/release.mjs");
     expect(pkg.scripts.release).not.toMatch(/npm publish|changeset publish/);
   });
@@ -80,6 +81,23 @@ describe("admin namespace", async () => {
     ] as const) {
       expect(admin[name]).toBeTypeOf("function");
     }
+  });
+});
+
+describe("no duplicated primitive internals", () => {
+  it("admin and inbox chrome import primitives instead of copying them", () => {
+    const root = dirname(fileURLToPath(import.meta.url));
+    expect(() => readFileSync(join(root, "admin/_internal/checkbox.tsx"), "utf8")).toThrow();
+    expect(() => readFileSync(join(root, "admin/_internal/slot.tsx"), "utf8")).toThrow();
+    expect(() => readFileSync(join(root, "inbox/_internal/chrome.ts"), "utf8")).toThrow();
+    const dataTable = readFileSync(join(root, "admin/DataTable.tsx"), "utf8");
+    const pageHeader = readFileSync(join(root, "admin/PageHeader.tsx"), "utf8");
+    const messageList = readFileSync(join(root, "inbox/MessageList.tsx"), "utf8");
+    expect(dataTable).toMatch(/from ["']\.\.\/primitives\/checkbox["']/);
+    expect(pageHeader).toMatch(/from ["']\.\.\/primitives\/slot["']/);
+    expect(messageList).toMatch(/from ["']\.\.\/primitives\/button["']/);
+    expect(messageList).toMatch(/from ["']\.\.\/primitives\/input["']/);
+    expect(messageList).toMatch(/from ["']\.\.\/primitives\/checkbox["']/);
   });
 });
 

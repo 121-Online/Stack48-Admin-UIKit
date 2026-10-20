@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "../lib/cn";
+import { Button } from "../primitives/button";
 
 /**
  * Window of at most 5 page numbers, matching GTM leads / platform-users.
@@ -53,40 +54,34 @@ export function DataTablePagination({
   return (
     <div className={cn("mt-4 flex items-center justify-between", className)}>
       <div className="flex items-center gap-2">
-        <button
-          type="button"
+        <Button
+          variant="secondary"
           onClick={() => onPageChange?.(page - 1)}
           disabled={page === 1 || disabled}
-          className="rounded-sm border border-zinc-300 bg-card px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50"
         >
           ← Previous
-        </button>
-        <button
-          type="button"
+        </Button>
+        <Button
+          variant="secondary"
           onClick={() => onPageChange?.(page + 1)}
           disabled={!hasMore || disabled}
-          className="rounded-sm border border-zinc-300 bg-card px-3 py-1.5 text-xs font-medium text-zinc-700 hover:bg-zinc-50 disabled:cursor-not-allowed disabled:opacity-50"
         >
           Next →
-        </button>
+        </Button>
       </div>
       <div className="flex items-center gap-1">
         {pages.map((pageNum) => (
-          <button
+          <Button
             key={pageNum}
-            type="button"
+            variant={pageNum === page ? "default" : "ghost"}
+            size="icon"
             onClick={() => onPageChange?.(pageNum)}
             disabled={disabled}
             aria-current={pageNum === page ? "page" : undefined}
-            className={cn(
-              "h-7 w-7 rounded-sm text-xs font-medium",
-              pageNum === page
-                ? "bg-primary text-primary-foreground"
-                : "border border-border hover:bg-zinc-50",
-            )}
+            className="h-7 w-7"
           >
             {pageNum}
-          </button>
+          </Button>
         ))}
       </div>
       <p className="text-xs text-zinc-500">

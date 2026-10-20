@@ -2,7 +2,7 @@
 
 import { isValidElement, type HTMLAttributes, type ReactNode } from "react";
 import { cn } from "../lib/cn";
-import { Slot } from "./_internal/slot";
+import { Slot } from "../primitives/slot";
 import { defaultRenderLink, type RenderLink } from "./render-link";
 
 /**

@@ -5,6 +5,7 @@ import { defaultNumberFormat, type NumberFormatter } from "./format";
 import { type KpiDelta, type MetricStatus } from "./KpiStrip";
 import { Sparkline } from "./Sparkline";
 
+/** Props for {@link KpiTile}. */
 export type KpiTileProps = {
   label: string;
   value: string | number;
@@ -102,6 +103,7 @@ export function KpiTile({
   );
 }
 
+/** Props for {@link KpiTileRow}. */
 export type KpiTileRowProps = {
   children: ReactNode;
   className?: string;

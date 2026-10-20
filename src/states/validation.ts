@@ -22,6 +22,7 @@ export const HHMM_PATTERN = /^([01]\d|2[0-3]):([0-5]\d)$/;
 export const LOCAL_PART_PATTERN = /^[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?$/;
 
 /** Weekday keys used by {@link ScheduleEditor}. */
+/** Weekday keys used by {@link ScheduleValue}. */
 export const DAY_KEYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"] as const;
 
 /** One weekday key. */
