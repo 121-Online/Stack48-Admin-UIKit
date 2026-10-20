@@ -52,3 +52,24 @@ describe("package contract", () => {
     }
   });
 });
+
+describe("admin namespace", async () => {
+  const admin = await import("./admin");
+
+  it("exports shell and table entry points", () => {
+    for (const name of [
+      "AppShell",
+      "Sidebar",
+      "PageHeader",
+      "Topbar",
+      "Breadcrumbs",
+      "DataTable",
+      "DataTableToolbar",
+      "DataTablePagination",
+      "FilterSelect",
+      "MultiSelectFilter",
+    ] as const) {
+      expect(admin[name]).toBeTypeOf("function");
+    }
+  });
+});

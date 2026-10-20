@@ -20,7 +20,7 @@ The kit is presentational only. Pass data via props. No Supabase, Resend, fetchi
 - [src/preset.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/preset.ts): Tailwind v3 preset
 - [src/lib/cn.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/lib/cn.ts): `cn()` helper
 - [src/primitives](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/primitives): customised shadcn (later PR)
-- [src/admin](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/admin): shell / tables (later PR)
+- [src/admin](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/admin): AppShell, Sidebar, PageHeader, DataTable
 - [src/charts](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/charts): charts (later PR)
 - [src/inbox](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/inbox): inbox (later PR)
 - [src/states](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/states): empty / loading / error / modals (later PR)
@@ -35,7 +35,7 @@ The kit is presentational only. Pass data via props. No Supabase, Resend, fetchi
 @stack48/admin-ui/styles.css      public CSS
 @stack48/admin-ui/theme.css       CSS variables only
 @stack48/admin-ui/primitives      shadcn primitives
-@stack48/admin-ui/admin           composed admin chrome
+@stack48/admin-ui/admin           AppShell, Sidebar, PageHeader, DataTable
 @stack48/admin-ui/charts          charts
 @stack48/admin-ui/inbox           inbox
 @stack48/admin-ui/states          states

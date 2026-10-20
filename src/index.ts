@@ -1,9 +1,9 @@
 /**
  * `@stack48/admin-ui` public barrel.
  *
- * Tokens, the Tailwind preset, and `cn()`. Component namespaces
- * (`primitives`, `admin`, `charts`, `inbox`, `states`) are empty in PR1 and
- * filled in later PRs. Prefer subpath imports:
+ * Tokens, the Tailwind preset, and `cn()`. Prefer subpath imports.
+ * Admin chrome lives at `@stack48/admin-ui/admin`. Other namespaces
+ * (`primitives`, `charts`, `inbox`, `states`) fill in parallel PRs.
  *
  * ```ts
  * import { cn } from "@stack48/admin-ui";
