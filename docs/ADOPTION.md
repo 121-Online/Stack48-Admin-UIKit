@@ -2,7 +2,7 @@
 
 Migration guide for apps that already look like the GTM ops dashboard and should switch onto `@stack48/admin-ui`.
 
-Tokens shipped in PR1. Shell / tables mapping is below; primitives, charts, inbox, and states land in parallel PRs.
+Tokens shipped in PR1. Primitives, shell / tables, and inbox mapping is below; charts and states land in parallel PRs.
 
 ## Target apps
 
@@ -25,8 +25,8 @@ Do not restyle the kit to match an app. If GTM and the kit diverge, change the k
 | Surface                | Kit home                                                       | App migration        |
 | ---------------------- | -------------------------------------------------------------- | -------------------- |
 | Tokens, preset, `cn()` | `src/tokens`, `src/preset`, `src/lib/cn`                       | Ready (this release) |
-| Primitives             | `src/primitives`                                               | Pending              |
-| Shell / tables         | `src/admin` (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) | Ready (this PR)      |
+| Primitives             | `src/primitives`                                               | Ready                |
+| Shell / tables         | `src/admin` (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) | Ready                |
 | Charts                 | `src/charts`                                                   | Pending              |
-| Inbox                  | `src/inbox`                                                    | Pending              |
+| Inbox                  | `src/inbox`                                                    | Ready (this PR)      |
 | Modals / empty / error | `src/states`                                                   | Pending              |
