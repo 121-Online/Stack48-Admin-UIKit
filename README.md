@@ -59,7 +59,7 @@ import "@stack48/admin-ui/styles.css";
 
 ### 4. First component
 
-Primitives ship in a later PR. Until then, compose with tokens + `cn()`:
+Admin chrome (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) is available from `@stack48/admin-ui/admin`. Primitives (Button, Input, Dialog) ship in a parallel PR. Until then, compose chrome with tokens + `cn()` for one-off controls:
 
 ```tsx
 import { cn } from "@stack48/admin-ui";
