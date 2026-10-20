@@ -2,7 +2,7 @@
 
 Migration guide for apps that already look like the GTM ops dashboard and should switch onto `@stack48/admin-ui`.
 
-Tokens shipped in PR1. Primitives, shell / tables, inbox, and charts mapping is below; states land in a parallel PR.
+Tokens shipped in PR1. Primitives, shell / tables, inbox, charts, and states mapping is below.
 
 ## Target apps
 
@@ -23,14 +23,14 @@ Do not restyle the kit to match an app. If GTM and the kit diverge, change the k
 
 ## Status
 
-| Surface                | Kit home                                                       | App migration        |
-| ---------------------- | -------------------------------------------------------------- | -------------------- |
-| Tokens, preset, `cn()` | `src/tokens`, `src/preset`, `src/lib/cn`                       | Ready (this release) |
-| Primitives             | `src/primitives`                                               | Ready                |
-| Shell / tables         | `src/admin` (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) | Ready                |
-| Charts                 | `src/charts`                                                   | Ready (this release) |
-| Inbox                  | `src/inbox`                                                    | Ready                |
-| Modals / empty / error | `src/states`                                                   | Pending              |
+| Surface                | Kit home                                                                                                                                 | App migration        |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| Tokens, preset, `cn()` | `src/tokens`, `src/preset`, `src/lib/cn`                                                                                                 | Ready (this release) |
+| Primitives             | `src/primitives`                                                                                                                         | Ready                |
+| Shell / tables         | `src/admin` (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`)                                                                           | Ready                |
+| Charts                 | `src/charts`                                                                                                                             | Ready                |
+| Inbox                  | `src/inbox`                                                                                                                              | Ready                |
+| Modals / empty / error | `src/states` (`EmptyState`, `LoadingState`, `ErrorState`, `ConfirmDialog`, `MultiEmailModal`, `ScheduleEditor`, `SendingIdentityEditor`) | Ready (this PR)      |
 
 ## Charts mapping (GTM → kit)
 

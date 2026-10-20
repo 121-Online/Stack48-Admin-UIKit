@@ -82,3 +82,29 @@ describe("admin namespace", async () => {
     }
   });
 });
+
+describe("states namespace", async () => {
+  const states = await import("./states");
+
+  it("exports empty, loading, error, form, and modal entry points", () => {
+    for (const name of [
+      "EmptyState",
+      "LoadingState",
+      "Spinner",
+      "ErrorState",
+      "InlineAlert",
+      "Banner",
+      "StaleWarning",
+      "FormField",
+      "FormSection",
+      "ConfirmDialog",
+      "MultiEmailModal",
+      "ScheduleEditor",
+      "SendingIdentityEditor",
+      "parseEmailList",
+      "isTypeConfirmAccepted",
+    ] as const) {
+      expect(states[name]).toBeTypeOf("function");
+    }
+  });
+});
