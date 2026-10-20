@@ -14,7 +14,7 @@ Pin a release tag. `pnpm install` runs `prepare`, which builds `dist/` (ESM + `.
 
 Copy-in: copy `src/` into the app and import from that path. Still add the preset and CSS.
 
-Peer deps (do not bundle): `react` >= 18, `react-dom` >= 18, `tailwindcss` ^3.4.
+Peer deps (do not bundle): `react` >= 18, `react-dom` >= 18, `tailwindcss` ^3.4. Optional peer: `recharts` ^2.12 (activity / reputation / horizontal-funnel plots only).
 
 ## Theme
 

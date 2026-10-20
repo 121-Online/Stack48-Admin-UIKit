@@ -9,7 +9,7 @@ This package is **not** published to npm. Apps consume it as **source from this 
 | Git dependency | `"@stack48/admin-ui": "github:121-Online/Stack48-Admin-UIKit#vX.Y.Z"` |
 | Copy-in        | copy `src/` and import from your tree; still add the preset + CSS     |
 
-Peer dependencies: `react`, `react-dom`, `tailwindcss` **^3.4**.
+Peer dependencies: `react`, `react-dom`, `tailwindcss` **^3.4**. Optional peer: `recharts` **^2.12** (activity / reputation / horizontal-funnel plots).
 
 ## Quickstart
 
@@ -59,7 +59,7 @@ import "@stack48/admin-ui/styles.css";
 
 ### 4. First component
 
-Admin chrome (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) is available from `@stack48/admin-ui/admin`. Primitives (Button, Input, Dialog) ship in a parallel PR. Until then, compose chrome with tokens + `cn()` for one-off controls:
+Admin chrome (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) is available from `@stack48/admin-ui/admin`. Charts ship from `@stack48/admin-ui/charts`. Inbox from `@stack48/admin-ui/inbox`. Primitives (Button, Input, Dialog) from `@stack48/admin-ui/primitives`. Compose one-off controls with tokens + `cn()`:
 
 ```tsx
 import { cn } from "@stack48/admin-ui";
@@ -85,6 +85,16 @@ import { tokens } from "@stack48/admin-ui/tokens";
 tokens.zinc[50]; // '#fafafa' — GTM canvas
 tokens.blue[500]; // '#3b82f6' — GTM --accent / kit --brand
 ```
+
+```tsx
+import { KpiTile, KpiTileRow, Sparkline } from "@stack48/admin-ui/charts";
+
+<KpiTileRow>
+  <KpiTile label="Sent Today" value={1240} sparklineData={[12, 18, 15, 22]} />
+</KpiTileRow>;
+```
+
+Activity / reputation / horizontal-funnel plots need optional peer `recharts@^2.12`. Docs: [`docs/components/`](./docs/components/).
 
 ## What this kit is
 

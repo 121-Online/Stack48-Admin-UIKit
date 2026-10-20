@@ -21,7 +21,7 @@ The kit is presentational only. Pass data via props. No Supabase, Resend, fetchi
 - [src/lib/cn.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/lib/cn.ts): `cn()` helper
 - [src/primitives](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/primitives): customised shadcn (Button, Input, Dialog, Select, …)
 - [src/admin](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/admin): AppShell, Sidebar, PageHeader, DataTable
-- [src/charts](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/charts): charts (later PR)
+- [src/charts](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/charts): KPI strip/tiles, dense metrics header, sparklines, activity/reputation charts, stacked bars, funnels, schematic world map
 - [src/inbox](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/inbox): Gmail-style inbox (InboxLayout, FolderList, MessageList, ThreadView, MessageMeta, SandboxedHtml, useInboxKeyboard)
 - [src/states](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/states): empty / loading / error / modals (later PR)
 
@@ -36,7 +36,7 @@ The kit is presentational only. Pass data via props. No Supabase, Resend, fetchi
 @stack48/admin-ui/theme.css       CSS variables only
 @stack48/admin-ui/primitives      Button, Input, Dialog, Select, …
 @stack48/admin-ui/admin           AppShell, Sidebar, PageHeader, DataTable
-@stack48/admin-ui/charts          charts
+@stack48/admin-ui/charts          KPI strip, sparklines, funnels, trends, world map
 @stack48/admin-ui/inbox           InboxLayout, FolderList, MessageList, ThreadView, MessageMeta, SandboxedHtml, useInboxKeyboard
 @stack48/admin-ui/states          states
 @stack48/admin-ui/components/*    same namespaces via the components/* export map

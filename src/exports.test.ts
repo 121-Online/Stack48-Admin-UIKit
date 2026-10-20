@@ -30,6 +30,7 @@ describe("package contract", () => {
     expect(pkg.peerDependencies.react).toBe(">=18");
     expect(pkg.peerDependencies["react-dom"]).toBe(">=18");
     expect(pkg.peerDependencies.tailwindcss).toMatch(/\^3/);
+    expect(pkg.peerDependencies.recharts).toMatch(/\^2/);
   });
 
   it("re-exports the inbox kit from the root barrel", async () => {
