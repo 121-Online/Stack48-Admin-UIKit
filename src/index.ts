@@ -3,8 +3,8 @@
  *
  * Tokens, the Tailwind preset, and `cn()`. Prefer subpath imports.
  * Primitives: `@stack48/admin-ui/primitives`. Admin chrome:
- * `@stack48/admin-ui/admin`. Inbox: `@stack48/admin-ui/inbox`.
- * Charts and states fill in parallel PRs.
+ * `@stack48/admin-ui/admin`. Charts: `@stack48/admin-ui/charts`.
+ * Inbox: `@stack48/admin-ui/inbox`. States fill in a parallel PR.
  *
  * ```ts
  * import { cn } from "@stack48/admin-ui";
