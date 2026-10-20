@@ -1,0 +1,130 @@
+/*
+ * Stack48 Admin UI — shadcn-format CSS variables.
+ * Source of truth for values: GTM ops dashboard (gtm.stack48.com).
+ * Channels are HSL without the `hsl()` wrapper so Tailwind can do
+ * `hsl(var(--background) / <alpha-value>)`.
+ *
+ * Light is the production GTM theme. `.dark` is a zinc-inverted opt-in;
+ * GTM itself does not ship a dark stylesheet today.
+ */
+
+:root {
+  --background: 0 0% 98%;
+  --foreground: 240 6% 10%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 240 6% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 6% 10%;
+
+  /* GTM `.btn-primary` is zinc-900, not brand blue. */
+  --primary: 240 6% 10%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 100%;
+  --secondary-foreground: 240 5% 26%;
+
+  --muted: 240 5% 96%;
+  --muted-foreground: 240 4% 46%;
+
+  /* shadcn hover wash (zinc-100). Brand blue is `--brand` / `--ring`. */
+  --accent: 240 5% 96%;
+  --accent-foreground: 240 6% 10%;
+
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 6% 90%;
+  --input: 240 5% 84%;
+  --ring: 217 91% 60%;
+
+  /* 2px — GTM buttons, inputs, `.stat-card`. */
+  --radius: 0.125rem;
+
+  /* GTM `:root { --accent: #3b82f6 }` */
+  --brand: 217 91% 60%;
+  --brand-foreground: 0 0% 100%;
+  --brand-hover: 221 83% 53%;
+
+  --success: 161 94% 30%;
+  --success-foreground: 0 0% 100%;
+  --success-muted: 152 81% 96%;
+
+  --warning: 32 95% 44%;
+  --warning-foreground: 240 6% 10%;
+  --warning-muted: 48 100% 96%;
+
+  --sidebar: 0 0% 100%;
+  --sidebar-foreground: 240 6% 10%;
+  --sidebar-border: 240 6% 90%;
+  --sidebar-accent: 240 5% 96%;
+  --sidebar-width: 16rem;
+  --header-height: 3.5rem;
+
+  --font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", Menlo, ui-monospace, SFMono-Regular, monospace;
+  --font-size-body: 13px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  --zinc-50: 0 0% 98%;
+  --zinc-100: 240 5% 96%;
+  --zinc-200: 240 6% 90%;
+  --zinc-300: 240 5% 84%;
+  --zinc-400: 240 5% 65%;
+  --zinc-500: 240 4% 46%;
+  --zinc-600: 240 5% 34%;
+  --zinc-700: 240 5% 26%;
+  --zinc-800: 240 4% 16%;
+  --zinc-900: 240 6% 10%;
+  --zinc-950: 240 10% 4%;
+}
+
+.dark {
+  --background: 240 10% 4%;
+  --foreground: 0 0% 98%;
+
+  --card: 240 6% 10%;
+  --card-foreground: 0 0% 98%;
+
+  --popover: 240 6% 10%;
+  --popover-foreground: 0 0% 98%;
+
+  --primary: 0 0% 98%;
+  --primary-foreground: 240 6% 10%;
+
+  --secondary: 240 6% 10%;
+  --secondary-foreground: 240 5% 84%;
+
+  --muted: 240 4% 16%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 240 4% 16%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 74% 42%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 240 4% 16%;
+  --input: 240 5% 26%;
+  --ring: 217 91% 60%;
+
+  --brand: 217 91% 60%;
+  --brand-foreground: 0 0% 100%;
+  --brand-hover: 221 83% 53%;
+
+  --success: 160 84% 39%;
+  --success-foreground: 240 10% 4%;
+  --success-muted: 163 88% 20%;
+
+  --warning: 38 92% 50%;
+  --warning-foreground: 240 10% 4%;
+  --warning-muted: 23 82% 31%;
+
+  --sidebar: 240 6% 10%;
+  --sidebar-foreground: 0 0% 98%;
+  --sidebar-border: 240 4% 16%;
+  --sidebar-accent: 240 4% 16%;
+}
