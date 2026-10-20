@@ -52,5 +52,6 @@ Native `<select>` attributes (`disabled`, `id`, …) are forwarded.
 ## Accessibility
 
 - Label is associated via `htmlFor`.
-- Native `<select>` / `<input type="checkbox">` keyboard behaviour.
-- Disabled checkbox sets `cursor-not-allowed` and `disabled` on the input.
+- Native `<select>` keyboard behaviour for `FilterSelect`.
+- `FilterCheckbox` is the primitives `Checkbox` (role `checkbox`, Space to toggle).
+- Disabled checkbox sets `cursor-not-allowed` and `disabled` on the control.

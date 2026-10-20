@@ -2,6 +2,7 @@
 
 import type { ReactNode } from "react";
 import { cn } from "../lib/cn";
+import { Input } from "../primitives/input";
 
 /**
  * Props for {@link DataTableToolbar}.
@@ -23,9 +24,6 @@ export interface DataTableToolbarProps {
   className?: string;
   children?: ReactNode;
 }
-
-const inputClassName =
-  "h-8 w-full rounded-sm border border-input bg-card px-2.5 text-sm text-foreground placeholder:text-zinc-400 focus:border-ring focus:ring-1 focus:ring-ring focus:outline-none";
 
 /**
  * Full-width table toolbar from GTM leads / platform-users: search, filter
@@ -52,12 +50,12 @@ export function DataTableToolbar({
             <label className="mb-1 block text-caption font-medium tracking-wider text-zinc-500 uppercase">
               {searchLabel}
             </label>
-            <input
+            <Input
               type="search"
               value={search ?? ""}
               onChange={(event) => onSearchChange?.(event.target.value)}
               placeholder={searchPlaceholder}
-              className={inputClassName}
+              className="h-8 py-0"
             />
           </div>
         ) : null}

@@ -32,4 +32,5 @@ export const chartColors = {
   marker: blue[500],
 } as const;
 
+/** Key of {@link chartColors}. */
 export type ChartColorName = keyof typeof chartColors;

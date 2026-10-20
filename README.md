@@ -57,44 +57,51 @@ import "@stack48/admin-ui/styles.css";
 
 `styles.css` sets shadcn CSS variables (`:root` and `.dark`), Inter + JetBrains Mono, and GTM body typography. Variables-only: `@stack48/admin-ui/theme.css`.
 
-### 4. First component
+### 4. First screen (`AppShell` + `DataTable`)
 
-Admin chrome (`AppShell`, `Sidebar`, `PageHeader`, `DataTable`) is available from `@stack48/admin-ui/admin`. Charts ship from `@stack48/admin-ui/charts`. Inbox from `@stack48/admin-ui/inbox`. Primitives (Button, Input, Dialog) from `@stack48/admin-ui/primitives`. Compose one-off controls with tokens + `cn()`:
+Admin chrome lives at `@stack48/admin-ui/admin`. Pass `pathname` and a `renderLink` so the kit never imports your router. Data is props-only — no fetching.
 
 ```tsx
-import { cn } from "@stack48/admin-ui";
+import { AppShell, DataTable, PageHeader, Sidebar } from "@stack48/admin-ui/admin";
+import type { ColumnDef } from "@stack48/admin-ui/admin";
 
-export function SaveButton({ className }: { className?: string }) {
+type Lead = { id: string; name: string; geo: string };
+
+const columns: ColumnDef<Lead>[] = [
+  { id: "name", header: "Name", accessor: "name", sortable: true },
+  { id: "geo", header: "Geo", accessor: "geo" },
+];
+
+export function LeadsPage({ leads, pathname }: { leads: Lead[]; pathname: string }) {
   return (
-    <button
-      type="button"
-      className={cn(
-        "rounded-sm bg-primary px-3 py-1.5 text-xs font-medium text-primary-foreground hover:bg-zinc-800",
-        className,
-      )}
+    <AppShell
+      sidebar={<Sidebar pathname={pathname} items={[{ href: "/leads", label: "Leads" }]} />}
     >
-      Save
-    </button>
+      <main className="p-6">
+        <PageHeader title="Leads" description="Browse and filter agency leads" />
+        <DataTable columns={columns} data={leads} />
+      </main>
+    </AppShell>
   );
 }
 ```
 
+Other namespaces: `@stack48/admin-ui/primitives` (Button, Input, Dialog), `@stack48/admin-ui/charts`, `@stack48/admin-ui/inbox`, `@stack48/admin-ui/states`. Compose one-off controls with tokens + `cn()`:
+
 ```tsx
+import { cn } from "@stack48/admin-ui";
 import { tokens } from "@stack48/admin-ui/tokens";
+import { KpiTile, KpiTileRow } from "@stack48/admin-ui/charts";
 
 tokens.zinc[50]; // '#fafafa' — GTM canvas
 tokens.blue[500]; // '#3b82f6' — GTM --accent / kit --brand
-```
-
-```tsx
-import { KpiTile, KpiTileRow, Sparkline } from "@stack48/admin-ui/charts";
 
 <KpiTileRow>
   <KpiTile label="Sent Today" value={1240} sparklineData={[12, 18, 15, 22]} />
 </KpiTileRow>;
 ```
 
-Activity / reputation / horizontal-funnel plots need optional peer `recharts@^2.12`. Docs: [`docs/components/`](./docs/components/).
+Activity / reputation / horizontal-funnel plots need optional peer `recharts@^2.12`. Full import map: [`AGENTS.md`](./AGENTS.md). Component docs: [`docs/components/`](./docs/components/).
 
 ## What this kit is
 

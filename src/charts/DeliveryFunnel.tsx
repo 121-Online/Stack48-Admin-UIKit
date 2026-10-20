@@ -20,12 +20,14 @@ import {
   type PercentFormatter,
 } from "./format";
 
+/** One named value in {@link DeliveryFunnel}. */
 export type FunnelStage = {
   name: string;
   value: number;
   color?: string;
 };
 
+/** Default ink / blue / green / purple stage colours. */
 export const defaultFunnelColors = [
   chartColors.sent,
   chartColors.delivered,
@@ -33,6 +35,7 @@ export const defaultFunnelColors = [
   chartColors.clicked,
 ] as const;
 
+/** Props for {@link DeliveryFunnel}. */
 export type DeliveryFunnelProps = {
   stages: FunnelStage[];
   label?: string;
@@ -120,6 +123,7 @@ export function DeliveryFunnel({
   );
 }
 
+/** Props for {@link DeliveryFunnelHorizontal}. */
 export type DeliveryFunnelHorizontalProps = DeliveryFunnelProps & {
   height?: number;
 };

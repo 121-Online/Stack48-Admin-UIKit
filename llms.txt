@@ -2,45 +2,48 @@
 
 > Presentational React + shadcn/ui kit for Stack48 internal ops dashboards. Consumed as a git dependency (`github:121-Online/Stack48-Admin-UIKit#vX.Y.Z`), not from npm. Visual source of truth: gtm.stack48.com (Inter 13px, zinc canvas, blue-500 brand, 2px radii).
 
-The kit is presentational only. Pass data via props. No Supabase, Resend, fetching, or business logic.
+**Rules:** presentational only. Pass data via props. No Supabase, Resend, fetching, or business logic.
 
 ## Docs
 
-- [README](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/README.md): git install, Tailwind preset, styles.css, first `cn()` usage
-- [AGENTS.md](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/AGENTS.md): install, theme, import map, compose folders, house style rules, token names
+- [README](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/README.md): git install, Tailwind preset, styles.css, AppShell + DataTable quickstart
+- [AGENTS.md](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/AGENTS.md): install, theme, **full export catalog**, compose folders, house style, token names
 - [CONTRIBUTING](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/docs/CONTRIBUTING.md): every component PR ships docs, stories, TSDoc, changeset
-- [ADOPTION](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/docs/ADOPTION.md): migrating apps (GTM dashboard and others) onto the kit
+- [ADOPTION](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/docs/ADOPTION.md): GTM class / `ui/*` / charts / inbox / SendTestModal → kit mapping
+- [components index](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/docs/components/README.md): every component doc
 - [CHANGELOG](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/CHANGELOG.md): semver via changesets; tags are vX.Y.Z GitHub Releases, no registry publish
 
 ## Code
 
-- [src/tokens.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/tokens.ts): JS token map (zinc, brand, semantic HSL, radii, type, spacing, layout)
+- [src/tokens.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/tokens.ts): JS token map
 - [src/styles/theme.css](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/styles/theme.css): shadcn CSS variables (`:root` and `.dark`)
-- [src/styles/styles.css](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/styles/styles.css): public stylesheet (fonts + variables + GTM body)
+- [src/styles/styles.css](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/styles/styles.css): public stylesheet
 - [src/preset.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/preset.ts): Tailwind v3 preset
-- [src/lib/cn.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/lib/cn.ts): `cn()` helper
-- [src/primitives](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/primitives): customised shadcn (Button, Input, Dialog, Select, …)
-- [src/admin](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/admin): AppShell, Sidebar, PageHeader, DataTable
-- [src/charts](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/charts): KPI strip/tiles, dense metrics header, sparklines, activity/reputation charts, stacked bars, funnels, schematic world map
-- [src/inbox](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/inbox): Gmail-style inbox (InboxLayout, FolderList, MessageList, ThreadView, MessageMeta, SandboxedHtml, useInboxKeyboard)
-- [src/states](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/states): EmptyState, LoadingState, ErrorState, InlineAlert, ConfirmDialog, MultiEmailModal, ScheduleEditor, SendingIdentityEditor
+- [src/lib/cn.ts](https://github.com/121-Online/Stack48-Admin-UIKit/blob/main/src/lib/cn.ts): `cn()`
+- [src/primitives](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/primitives)
+- [src/admin](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/admin)
+- [src/charts](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/charts)
+- [src/inbox](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/inbox)
+- [src/states](https://github.com/121-Online/Stack48-Admin-UIKit/tree/main/src/states)
 
-## Imports
+## Imports (every public subpath)
 
 ```
-@stack48/admin-ui                 cn, tokens, preset
-@stack48/admin-ui/tokens          token objects
-@stack48/admin-ui/preset          Tailwind preset + adminUiContentGlobs
+@stack48/admin-ui                 cn, tokens (+ zinc/blue/red/emerald/amber/hsl/lightSemantic/darkSemantic/radii/shadows/typography/spacing/layout/semanticCssVarNames), preset, adminUiContentGlobs, and all namespace re-exports
+@stack48/admin-ui/tokens          token objects (same token exports as root)
+@stack48/admin-ui/preset          default Tailwind preset + adminUiContentGlobs
 @stack48/admin-ui/cn              cn()
-@stack48/admin-ui/styles.css      public CSS
+@stack48/admin-ui/styles.css      public CSS (fonts + variables + GTM body)
 @stack48/admin-ui/theme.css       CSS variables only
-@stack48/admin-ui/primitives      Button, Input, Dialog, Select, …
-@stack48/admin-ui/admin           AppShell, Sidebar, PageHeader, DataTable
-@stack48/admin-ui/charts          KPI strip, sparklines, funnels, trends, world map
-@stack48/admin-ui/inbox           InboxLayout, FolderList, MessageList, ThreadView, MessageMeta, SandboxedHtml, useInboxKeyboard
-@stack48/admin-ui/states          EmptyState, LoadingState, ErrorState, InlineAlert, ConfirmDialog, MultiEmailModal, ScheduleEditor, SendingIdentityEditor
+@stack48/admin-ui/primitives      Button, buttonVariants, Input, Textarea, Label, labelVariants, Checkbox, Switch, Badge, badgeVariants, StatusIndicator, Section, SectionDivider, Separator, Skeleton, Select (+ Group/Value/Trigger/Content/Label/Item/Separator), Tabs (+ List/Trigger/Content), Dialog (+ Portal/Overlay/Trigger/Close/Content/Header/Footer/Title/Description), DropdownMenu (+ Trigger/Content/Item/CheckboxItem/RadioItem/Label/Separator/Shortcut/Group/Portal/Sub/SubContent/SubTrigger/RadioGroup), Popover (+ Trigger/Content/Anchor), Tooltip (+ Trigger/Content/Provider), Toast (+ Provider/Viewport/Title/Description/Close/Action)
+@stack48/admin-ui/admin           AppShell, Sidebar, Breadcrumb, Breadcrumbs, PageHeader, Topbar, DataTable, DataTableToolbar, DataTablePagination, pageWindow, FilterCheckbox, FilterSelect, ChipList, MultiSelectFilter, Table, TableHeader, TableBody, TableRow, TableCell, TableMessage, DataTableRoot/Head/Body/Row/Cell (GTM aliases), isActiveRoute, defaultRenderLink
+@stack48/admin-ui/charts          ChartA11y, ChartEmpty, HiddenDataTable, ChartTooltip, chartColors, DailyActivityChart, defaultDailyActivitySeries, DeliveryFunnel, DeliveryFunnelHorizontal, defaultFunnelColors, defaultDateLabel, defaultDateTick, defaultNumberFormat, defaultPercentFormat, KpiDivider, KpiItem, KpiStrip, KpiTile, KpiTileRow, MetricsHeader, BounceRateChart, ComplaintRateChart, defaultBounceThresholds, defaultComplaintThresholds, RateTrendChart, Sparkline, StackedBars, TaperedFunnel, defaultRegionCoordinates, WorldMap
+@stack48/admin-ui/inbox           InboxLayout, FolderList, MessageList, ThreadView, MessageMeta, SandboxedHtml, buildInboxHtmlSrcDoc, INBOX_HTML_CSP, useInboxKeyboard, INBOX_SHORTCUTS, isEditableKeyboardTarget, nextFocusedIndex, resolveInboxKey
+@stack48/admin-ui/states          EmptyState, LoadingState, Spinner, ErrorState, Banner, InlineAlert, StaleWarning, FormField, FormSection, ConfirmDialog, MultiEmailModal, testQueuedMessage, ScheduleEditor, SendingIdentityEditor, DAY_KEYS, DAY_LABELS, DEFAULT_CONFIRM_TOKEN, DEFAULT_EMAIL_PATTERN, DEFAULT_MAX_EMAILS, DEFAULT_SCHEDULE, EMPTY_SENDING_IDENTITY, HHMM_PATTERN, LOCAL_PART_PATTERN, filterTimezones, isTypeConfirmAccepted, isValidEmail, listTimezones, parseEmailList, previewFromAddress, previewReplyToAddress, timeToMinutes, validateDayWindow, validateFromName, validateLocalPart, validateSchedule, validateSendingIdentity, validateTimezone
 @stack48/admin-ui/components/*    same namespaces via the components/* export map
 ```
+
+Untrusted email HTML: `SandboxedHtml` only. Never `dangerouslySetInnerHTML`.
 
 ## House style (non-negotiable)
 

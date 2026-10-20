@@ -2,6 +2,7 @@ import { cn } from "../lib/cn";
 import { ChartA11y } from "./a11y";
 import { defaultNumberFormat, type NumberFormatter } from "./format";
 
+/** Props for {@link Sparkline}. */
 export type SparklineProps = {
   /** Series values in plot order (left → right). */
   data: number[];

@@ -1,7 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { useState, type ReactNode } from "react";
+import { Button } from "../primitives/button";
+import { Textarea } from "../primitives/textarea";
 import { ThreadView } from "./ThreadView";
-import { btnPrimary, inputField } from "./_internal/chrome";
 import { demoLongThread, demoThread } from "./_internal/demo";
 import type { InboxThreadMessage } from "./types";
 
@@ -42,21 +43,17 @@ function ReplySlot({
   return (
     <div>
       <h2 className="text-sm font-semibold text-foreground mb-1">Reply</h2>
-      <textarea
-        className={`${inputField} min-h-[120px]`}
+      <Textarea
+        className="min-h-[120px]"
         value={text}
         onChange={(event) => setText(event.target.value)}
         placeholder="Write a plain-text reply…"
         disabled={disabled}
       />
       <div className="mt-3 flex justify-end">
-        <button
-          type="button"
-          className={btnPrimary}
-          disabled={disabled || text.trim().length === 0}
-        >
+        <Button disabled={disabled || text.trim().length === 0}>
           {disabled ? "Sending…" : "Send"}
-        </button>
+        </Button>
       </div>
     </div>
   );
@@ -70,11 +67,7 @@ const withActions: InboxThreadMessage[] = demoThread.map((message) =>
   message.direction === "inbound"
     ? {
         ...message,
-        actions: (
-          <button type="button" className={btnPrimary + " text-xs"}>
-            Mark handled
-          </button>
-        ),
+        actions: <Button size="sm">Mark handled</Button>,
       }
     : message,
 );

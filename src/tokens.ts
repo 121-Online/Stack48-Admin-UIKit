@@ -36,6 +36,7 @@ export const blue = {
   900: "#1e3a8a",
 } as const;
 
+/** Destructive / bounce red from the GTM dashboard. */
 export const red = {
   50: "#fef2f2",
   500: "#ef4444",
@@ -45,6 +46,7 @@ export const red = {
   900: "#7f1d1d",
 } as const;
 
+/** Success / delivered-health emerald from the GTM dashboard. */
 export const emerald = {
   50: "#ecfdf5",
   500: "#10b981",
@@ -54,6 +56,7 @@ export const emerald = {
   900: "#064e3b",
 } as const;
 
+/** Warning / stale / complaint amber from the GTM dashboard. */
 export const amber = {
   50: "#fffbeb",
   500: "#f59e0b",
@@ -142,8 +145,10 @@ export const semanticCssVarNames = [
   "shadow-lg",
 ] as const;
 
+/** CSS variable name without the leading `--`. */
 export type SemanticCssVarName = (typeof semanticCssVarNames)[number];
 
+/** Light-theme HSL channels matching `src/styles/theme.css` `:root`. */
 export const lightSemantic = {
   background: hsl.zinc[50],
   foreground: hsl.zinc[900],
@@ -218,6 +223,7 @@ export const darkSemantic = {
   "sidebar-accent": hsl.zinc[800],
 } as const;
 
+/** Border radii. `sm` (2px) is the default control / card radius. */
 export const radii = {
   none: "0px",
   /** GTM buttons, inputs, `.stat-card` — `--radius`. */
@@ -229,6 +235,7 @@ export const radii = {
   full: "9999px",
 } as const;
 
+/** Elevation. Stat tiles and KPI chrome use `none`. */
 export const shadows = {
   none: "none",
   /** Tailwind `shadow-sm` — used sparingly; GTM stat cards have no shadow. */
@@ -237,6 +244,7 @@ export const shadows = {
   lg: "0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)",
 } as const;
 
+/** Font stacks, 13px body, and the compact type scale. */
 export const typography = {
   fontSans: 'Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
   fontMono: '"JetBrains Mono", Menlo, ui-monospace, SFMono-Regular, monospace',
@@ -290,6 +298,7 @@ export const layout = {
   headerHeight: "3.5rem",
 } as const;
 
+/** Aggregated token map exported as `@stack48/admin-ui/tokens`. */
 export const tokens = {
   zinc,
   blue,
@@ -307,4 +316,5 @@ export const tokens = {
   semanticCssVarNames,
 } as const;
 
+/** Shape of {@link tokens}. */
 export type Tokens = typeof tokens;

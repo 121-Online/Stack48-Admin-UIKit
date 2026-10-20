@@ -21,6 +21,7 @@ import {
   type PercentFormatter,
 } from "./format";
 
+/** One sample in {@link RateTrendChart}. */
 export type RateTrendPoint = {
   date: string;
   /** Rate in percent units (4 = 4%) unless `rateIsFraction` is set. */
@@ -29,6 +30,7 @@ export type RateTrendPoint = {
   denominator?: number;
 };
 
+/** Horizontal reference line in {@link RateTrendChart}. */
 export type RateThreshold = {
   value: number;
   label: string;
@@ -36,6 +38,7 @@ export type RateThreshold = {
   strokeDasharray?: string;
 };
 
+/** Props for {@link RateTrendChart}. */
 export type RateTrendChartProps = {
   data: RateTrendPoint[];
   height?: number;
@@ -174,11 +177,13 @@ export function RateTrendChart({
   );
 }
 
+/** Default bounce-rate warning / limit lines (percent units). */
 export const defaultBounceThresholds: RateThreshold[] = [
   { value: 4, label: "Limit 4%", color: chartColors.bounce, strokeDasharray: "4 4" },
   { value: 2, label: "Warn 2%", color: chartColors.warning, strokeDasharray: "2 2" },
 ];
 
+/** Default complaint-rate warning / limit lines (percent units). */
 export const defaultComplaintThresholds: RateThreshold[] = [
   { value: 0.08, label: "0.08%", color: chartColors.bounce, strokeDasharray: "4 4" },
   { value: 0.04, label: "0.04%", color: chartColors.warning, strokeDasharray: "2 2" },

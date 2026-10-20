@@ -2,6 +2,7 @@ import { cn } from "../lib/cn";
 import { defaultNumberFormat, type NumberFormatter } from "./format";
 import { Sparkline } from "./Sparkline";
 
+/** Inline count in {@link MetricsHeader}. */
 export type MetricsHeaderStat = {
   /** Unit / noun shown after the value (`accounts`, `new 24h`). */
   label: string;
@@ -10,21 +11,25 @@ export type MetricsHeaderStat = {
   emphasize?: boolean;
 };
 
+/** One bucket in a {@link MetricsHeaderBreakdown}. */
 export type MetricsHeaderBreakdownItem = {
   key: string;
   count: number;
 };
 
+/** Labelled set of counts in {@link MetricsHeader}. */
 export type MetricsHeaderBreakdown = {
   label: string;
   items: MetricsHeaderBreakdownItem[];
 };
 
+/** Label/value pair in {@link MetricsHeader}. */
 export type MetricsHeaderFact = {
   label: string;
   value: string | number;
 };
 
+/** Props for {@link MetricsHeader}. */
 export type MetricsHeaderProps = {
   stats?: MetricsHeaderStat[];
   breakdowns?: MetricsHeaderBreakdown[];

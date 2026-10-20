@@ -2,7 +2,7 @@
 
 Instructions for coding agents working in this repo or consuming the kit from an app.
 
-This kit is **presentational**. It is consumed as **git source**, not from npm.
+This kit is **presentational**. It is consumed as **git source**, not from npm. **Props in, events out. No fetching.**
 
 ## Install
 
@@ -39,26 +39,88 @@ import "@stack48/admin-ui/styles.css";
 
 Do not restyle tokens to “look nicer”. Match GTM: Inter 13px, zinc-50 canvas, zinc-900 primary buttons, blue-500 brand/focus, 2px radius, 1px `border-border`, no drop shadow on stat tiles.
 
-## Import
+## Rules (non-negotiable)
+
+1. **Presentational only.** No Supabase, Resend, `fetch`, React Query, cookies, auth, or domain rules. No hidden I/O. If it needs a server, it does not belong in this kit.
+2. **Data via props.** Every component is presentational. Callers pass rows, counts, labels, and callbacks.
+3. **Professional ops tool.** Linear/Stripe-dashboard density, not a marketing site.
+4. **Dense.** Default type is 13px. Prefer `text-caption` (11px) and `text-xs` (12px) for chrome.
+5. **Full-width layouts.** Sidebars are `w-sidebar` (16rem); the header is `h-header` (3.5rem).
+6. **No boxy cartoon cards.** `bg-card` + `border border-border` + `rounded-sm` (2px). GTM `.stat-card` has **no shadow**.
+
+## Import map — every public export
+
+Prefer subpath imports. `@stack48/admin-ui/components/<ns>` re-exports the same namespace as `@stack48/admin-ui/<ns>`. The root barrel also re-exports everything; apps should still import from subpaths.
+
+Equivalent:
 
 ```ts
-import { cn } from "@stack48/admin-ui";
-import { tokens } from "@stack48/admin-ui/tokens";
-import preset from "@stack48/admin-ui/preset";
-import "@stack48/admin-ui/styles.css";
-
-// later PRs
 import { Button } from "@stack48/admin-ui/primitives";
-import { AppShell } from "@stack48/admin-ui/admin";
-import { Sparkline } from "@stack48/admin-ui/charts";
-import { MessageList } from "@stack48/admin-ui/inbox";
-import { EmptyState } from "@stack48/admin-ui/states";
-
-// equivalent
 import { Button } from "@stack48/admin-ui/components/primitives";
 ```
 
-Root barrel (`@stack48/admin-ui`) re-exports `cn`, tokens, and the preset. Prefer subpaths in apps.
+### `@stack48/admin-ui`
+
+| Export                                                                                                                                                                    | Kind                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------- |
+| `cn`                                                                                                                                                                      | class helper          |
+| `tokens`, `zinc`, `blue`, `red`, `emerald`, `amber`, `hsl`, `lightSemantic`, `darkSemantic`, `radii`, `shadows`, `typography`, `spacing`, `layout`, `semanticCssVarNames` | tokens                |
+| `Tokens`, `SemanticCssVarName`                                                                                                                                            | types                 |
+| `preset`, `adminUiContentGlobs`                                                                                                                                           | Tailwind              |
+| plus every namespace export below                                                                                                                                         | convenience re-export |
+
+### `@stack48/admin-ui/tokens`
+
+`tokens`, `zinc`, `blue`, `red`, `emerald`, `amber`, `hsl`, `lightSemantic`, `darkSemantic`, `radii`, `shadows`, `typography`, `spacing`, `layout`, `semanticCssVarNames`, types `Tokens`, `SemanticCssVarName`.
+
+### `@stack48/admin-ui/preset`
+
+Default: Tailwind v3 preset. Named: `adminUiContentGlobs`.
+
+### `@stack48/admin-ui/cn`
+
+`cn()`.
+
+### CSS
+
+| Subpath                        | File                                   |
+| ------------------------------ | -------------------------------------- |
+| `@stack48/admin-ui/styles.css` | fonts + variables + GTM body           |
+| `@stack48/admin-ui/theme.css`  | CSS variables only (`:root` / `.dark`) |
+
+### `@stack48/admin-ui/primitives`
+
+`Button`, `buttonVariants`, `Input`, `Textarea`, `Label`, `labelVariants`, `Checkbox`, `Switch`, `Badge`, `badgeVariants`, `StatusIndicator`, `Section`, `SectionDivider`, `Separator`, `Skeleton`, `Select`, `SelectGroup`, `SelectValue`, `SelectTrigger`, `SelectContent`, `SelectLabel`, `SelectItem`, `SelectSeparator`, `Tabs`, `TabsList`, `TabsTrigger`, `TabsContent`, `Dialog`, `DialogPortal`, `DialogOverlay`, `DialogTrigger`, `DialogClose`, `DialogContent`, `DialogHeader`, `DialogFooter`, `DialogTitle`, `DialogDescription`, `DropdownMenu`, `DropdownMenuTrigger`, `DropdownMenuContent`, `DropdownMenuItem`, `DropdownMenuCheckboxItem`, `DropdownMenuRadioItem`, `DropdownMenuLabel`, `DropdownMenuSeparator`, `DropdownMenuShortcut`, `DropdownMenuGroup`, `DropdownMenuPortal`, `DropdownMenuSub`, `DropdownMenuSubContent`, `DropdownMenuSubTrigger`, `DropdownMenuRadioGroup`, `Popover`, `PopoverTrigger`, `PopoverContent`, `PopoverAnchor`, `Tooltip`, `TooltipTrigger`, `TooltipContent`, `TooltipProvider`, `Toast`, `ToastProvider`, `ToastViewport`, `ToastTitle`, `ToastDescription`, `ToastClose`, `ToastAction`.
+
+Types: `ButtonProps`, `InputProps`, `TextareaProps`, `LabelProps`, `CheckboxProps`, `SwitchProps`, `BadgeProps`, `StatusIndicatorProps`, `StatusIndicatorStatus`, `SectionProps`, `SectionDividerProps`, `SeparatorProps`, `SkeletonProps`, `SelectTriggerProps`, `SelectContentProps`, `SelectLabelProps`, `SelectItemProps`, `SelectSeparatorProps`, `TabsListProps`, `TabsTriggerProps`, `TabsContentProps`, `DialogOverlayProps`, `DialogContentProps`, `DialogTitleProps`, `DialogDescriptionProps`, `DropdownMenuSubTriggerProps`, `DropdownMenuSubContentProps`, `DropdownMenuContentProps`, `DropdownMenuItemProps`, `DropdownMenuCheckboxItemProps`, `DropdownMenuRadioItemProps`, `DropdownMenuLabelProps`, `DropdownMenuSeparatorProps`, `PopoverContentProps`, `TooltipContentProps`, `ToastProps`, `ToastViewportProps`, `ToastActionProps`, `ToastCloseProps`, `ToastTitleProps`, `ToastDescriptionProps`, `ToastActionElement`.
+
+### `@stack48/admin-ui/admin`
+
+`AppShell`, `Sidebar`, `Breadcrumb`, `Breadcrumbs`, `PageHeader`, `Topbar`, `DataTable`, `DataTableToolbar`, `DataTablePagination`, `pageWindow`, `FilterCheckbox`, `FilterSelect`, `ChipList`, `MultiSelectFilter`, `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableCell`, `TableMessage`, `DataTableRoot`, `DataTableHead`, `DataTableBody`, `DataTableRow`, `DataTableCell` (GTM aliases of `Table*`), `isActiveRoute`, `defaultRenderLink`.
+
+Types: `AppShellProps`, `SidebarNavGroup`, `SidebarNavItem`, `SidebarProps`, `BreadcrumbItem`, `BreadcrumbProps`, `BreadcrumbsProps`, `PageHeaderProps`, `TopbarProps`, `ColumnDef`, `DataTableProps`, `PaginationState`, `SortState`, `DataTableToolbarProps`, `DataTablePaginationProps`, `FilterCheckboxProps`, `FilterOption`, `FilterSelectProps`, `ChipListProps`, `MultiSelectFilterProps`, `TableCellProps`, `TableProps`, `TableRowProps`, `RenderLink`, `RenderLinkProps`.
+
+### `@stack48/admin-ui/charts`
+
+`ChartA11y`, `ChartEmpty`, `HiddenDataTable`, `ChartTooltip`, `chartColors`, `DailyActivityChart`, `defaultDailyActivitySeries`, `defaultFunnelColors`, `DeliveryFunnel`, `DeliveryFunnelHorizontal`, `defaultDateLabel`, `defaultDateTick`, `defaultNumberFormat`, `defaultPercentFormat`, `KpiDivider`, `KpiItem`, `KpiStrip`, `KpiTile`, `KpiTileRow`, `MetricsHeader`, `BounceRateChart`, `ComplaintRateChart`, `defaultBounceThresholds`, `defaultComplaintThresholds`, `RateTrendChart`, `Sparkline`, `StackedBars`, `TaperedFunnel`, `defaultRegionCoordinates`, `WorldMap`.
+
+Types: `ChartTooltipItem`, `ChartColorName`, `ChartSeries`, `DailyActivityChartProps`, `DailyActivityPoint`, `DeliveryFunnelHorizontalProps`, `DeliveryFunnelProps`, `FunnelStage`, `DateFormatter`, `NumberFormatter`, `PercentFormatter`, `KpiDelta`, `KpiDividerProps`, `KpiItemProps`, `KpiStripProps`, `MetricStatus`, `KpiTileProps`, `KpiTileRowProps`, `MetricsHeaderBreakdown`, `MetricsHeaderBreakdownItem`, `MetricsHeaderFact`, `MetricsHeaderProps`, `MetricsHeaderStat`, `RateThreshold`, `RateTrendChartProps`, `RateTrendPoint`, `SparklineProps`, `StackedBarSegment`, `StackedBarsProps`, `TaperedFunnelProps`, `TaperedFunnelStage`, `WorldMapCoordinates`, `WorldMapProps`, `WorldMapRegion`, `WorldMapViewMode`.
+
+### `@stack48/admin-ui/inbox`
+
+`InboxLayout`, `FolderList`, `MessageList`, `ThreadView`, `MessageMeta`, `SandboxedHtml`, `buildInboxHtmlSrcDoc`, `INBOX_HTML_CSP`, `useInboxKeyboard`, `INBOX_SHORTCUTS`, `isEditableKeyboardTarget`, `nextFocusedIndex`, `resolveInboxKey`.
+
+Types: `InboxLayoutProps`, `FolderListProps`, `MessageListProps`, `ThreadViewProps`, `MessageMetaProps`, `SandboxedHtmlProps`, `InboxKeyboardCallbacks`, `InboxKeyboardOptions`, `InboxKeyAction`, `InboxKeyEvent`, `InboxShortcut`, `InboxAttachment`, `InboxChip`, `InboxChipVariant`, `InboxFolder`, `InboxFolderIconName`, `InboxListItem`, `InboxMailbox`, `InboxMessageDirection`, `InboxPageEvent`, `InboxThreadMessage`.
+
+Untrusted HTML only through `SandboxedHtml` (`sandbox=""` iframe + CSP `srcdoc`). Never `dangerouslySetInnerHTML`.
+
+### `@stack48/admin-ui/states`
+
+`EmptyState`, `LoadingState`, `Spinner`, `ErrorState`, `Banner`, `InlineAlert`, `StaleWarning`, `FormField`, `FormSection`, `ConfirmDialog`, `MultiEmailModal`, `testQueuedMessage`, `ScheduleEditor`, `SendingIdentityEditor`, `DAY_KEYS`, `DAY_LABELS`, `DEFAULT_CONFIRM_TOKEN`, `DEFAULT_EMAIL_PATTERN`, `DEFAULT_MAX_EMAILS`, `DEFAULT_SCHEDULE`, `EMPTY_SENDING_IDENTITY`, `HHMM_PATTERN`, `LOCAL_PART_PATTERN`, `filterTimezones`, `isTypeConfirmAccepted`, `isValidEmail`, `listTimezones`, `parseEmailList`, `previewFromAddress`, `previewReplyToAddress`, `timeToMinutes`, `validateDayWindow`, `validateFromName`, `validateLocalPart`, `validateSchedule`, `validateSendingIdentity`, `validateTimezone`.
+
+Types: `EmptyStateProps`, `LoadingStateProps`, `LoadingStateVariant`, `SpinnerProps`, `ErrorStateProps`, `AlertTone`, `InlineAlertProps`, `StaleWarningProps`, `FormFieldProps`, `FormSectionProps`, `ConfirmDialogProps`, `ConfirmMode`, `MultiEmailModalProps`, `ScheduleEditorProps`, `SendingDomainOption`, `SendingIdentityEditorProps`, `DayKey`, `DayWindow`, `ScheduleValue`, `SendingIdentityValue`, `ValidationResult`.
+
+Validation defaults are **format checks**. Replace them from the app. The kit does not send mail.
 
 ## Compose
 
@@ -73,15 +135,7 @@ src/states       empty / loading / error / modal frames
 - New components go in the matching folder, with a Storybook story, TSDoc, a docs page, and a changeset.
 - Export from the folder `index.ts` **and** `src/components/<namespace>.ts` so both subpaths work.
 - Apps compose primitives into pages. Do not hide product rules inside the kit.
-
-## House style rules
-
-1. **Professional ops tool.** This is Linear/Stripe-dashboard density, not a marketing site and not a consumer toy.
-2. **Dense.** Default type is 13px. Prefer `text-caption` (11px) and `text-xs` (12px) for chrome. Do not inflate padding to “breathe”.
-3. **Full-width layouts.** Content uses the viewport. No centered max-w-prose marketing columns inside the admin shell. Sidebars are `w-sidebar` (16rem); the header is `h-header` (3.5rem).
-4. **No boxy cartoon cards.** Surfaces are `bg-card` with `border border-border` and `rounded-sm` (2px). Do not use large radius, colored shadows, gradients, or stacked equal-weight cards. GTM `.stat-card` is 1px zinc-200, 2px radius, 16px padding, **no shadow**.
-5. **Data via props.** Every component is presentational. Callers pass rows, counts, labels, and callbacks.
-6. **Presentational only.** No Supabase, Resend, `fetch`, React Query, cookies, auth, or domain rules. No hidden I/O. If it needs a server, it does not belong in this kit.
+- Do not duplicate primitives under `*/_internal`. Import from `src/primitives`.
 
 ## Do / don’t (visual)
 
@@ -93,7 +147,7 @@ src/states       empty / loading / error / modal frames
 | `text-brand` / `border-ring` for links and focus | Recolor `--primary` to blue                                             |
 | `tabular-nums` on metrics                        | Title-case every label; GTM uses sentence case + uppercase micro labels |
 
-## Token names (stable for later PRs)
+## Token names (stable)
 
 shadcn CSS variables: `--background`, `--foreground`, `--card`, `--card-foreground`, `--popover`, `--popover-foreground`, `--primary`, `--primary-foreground`, `--secondary`, `--secondary-foreground`, `--muted`, `--muted-foreground`, `--accent`, `--accent-foreground`, `--destructive`, `--destructive-foreground`, `--border`, `--input`, `--ring`, `--radius`.
 

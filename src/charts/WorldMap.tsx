@@ -10,11 +10,13 @@ import {
 } from "./format";
 import { lonLatToViewBox, WORLD_VIEWBOX, WorldLandmass } from "./world-land";
 
+/** Lon/lat used by {@link WorldMap} markers. */
 export type WorldMapCoordinates = {
   lon: number;
   lat: number;
 };
 
+/** Plotted region in {@link WorldMap}. */
 export type WorldMapRegion = {
   id: string;
   label: string;
@@ -25,6 +27,7 @@ export type WorldMapRegion = {
   coordinates?: WorldMapCoordinates;
 };
 
+/** Toggle option for {@link WorldMap} (`7d`, `today`, …). */
 export type WorldMapViewMode = {
   id: string;
   label: string;
@@ -45,6 +48,7 @@ export const defaultRegionCoordinates: Record<string, WorldMapCoordinates> = {
   IND: { lon: 79, lat: 22 },
 };
 
+/** Props for {@link WorldMap}. */
 export type WorldMapProps = {
   regions: WorldMapRegion[];
   viewModes?: WorldMapViewMode[];

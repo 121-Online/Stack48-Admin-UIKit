@@ -7,6 +7,7 @@ import {
   type PercentFormatter,
 } from "./format";
 
+/** One slice of {@link StackedBars}. */
 export type StackedBarSegment = {
   key: string;
   label: string;
@@ -18,6 +19,7 @@ export type StackedBarSegment = {
   share?: number;
 };
 
+/** Props for {@link StackedBars}. */
 export type StackedBarsProps = {
   segments: StackedBarSegment[];
   /** Caption under the legend (GTM “Total with email: …”). */

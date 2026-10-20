@@ -2,6 +2,7 @@
 
 import type { SelectHTMLAttributes } from "react";
 import { cn } from "../lib/cn";
+import { Checkbox } from "../primitives/checkbox";
 
 /**
  * Option for {@link FilterSelect}.
@@ -100,12 +101,10 @@ export function FilterCheckbox({
         className,
       )}
     >
-      <input
-        type="checkbox"
+      <Checkbox
         checked={checked}
         disabled={disabled}
-        onChange={(event) => onCheckedChange?.(event.target.checked)}
-        className="h-4 w-4 rounded-sm border-input accent-brand"
+        onCheckedChange={(value) => onCheckedChange?.(value === true)}
       />
       {label}
     </label>

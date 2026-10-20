@@ -2,7 +2,7 @@
 
 import { useMemo, type KeyboardEvent, type MouseEvent, type ReactNode } from "react";
 import { cn } from "../lib/cn";
-import { InternalCheckbox } from "./_internal/checkbox";
+import { Checkbox } from "../primitives/checkbox";
 import { SortIcon } from "./_internal/icons";
 import { useControllableState } from "./_internal/use-controllable-state";
 import { DataTablePagination } from "./DataTablePagination";
@@ -304,10 +304,11 @@ export function DataTable<T>({
                 <tr className="border-b border-border bg-zinc-50 text-xs font-medium tracking-wider text-zinc-500 uppercase">
                   {selectable ? (
                     <th className="w-8 px-3 py-2">
-                      <InternalCheckbox
-                        checked={allPageSelected}
-                        indeterminate={somePageSelected && !allPageSelected}
-                        onCheckedChange={toggleAll}
+                      <Checkbox
+                        checked={
+                          allPageSelected ? true : somePageSelected ? "indeterminate" : false
+                        }
+                        onCheckedChange={(value) => toggleAll(value === true)}
                         aria-label="Select all rows on this page"
                       />
                     </th>
@@ -382,9 +383,9 @@ export function DataTable<T>({
                     >
                       {selectable ? (
                         <td className="px-3 py-2" onClick={(event) => event.stopPropagation()}>
-                          <InternalCheckbox
+                          <Checkbox
                             checked={selected.has(rowId)}
-                            onCheckedChange={(checked) => toggleRow(rowId, checked)}
+                            onCheckedChange={(value) => toggleRow(rowId, value === true)}
                             aria-label={`Select row ${rowId}`}
                           />
                         </td>

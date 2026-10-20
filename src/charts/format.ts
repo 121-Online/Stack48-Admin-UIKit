@@ -36,6 +36,9 @@ export function defaultDateLabel(isoDate: string): string {
   return `${day}/${month}/${year}`;
 }
 
+/** Format a count for a chart label or tooltip. */
 export type NumberFormatter = (value: number) => string;
+/** Format a percentage already in percent units. */
 export type PercentFormatter = (value: number, digits?: number) => string;
+/** Format an ISO date tick or tooltip. */
 export type DateFormatter = (isoDate: string) => string;

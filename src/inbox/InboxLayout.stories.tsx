@@ -6,7 +6,8 @@ import { MessageList } from "./MessageList";
 import { ThreadView } from "./ThreadView";
 import { useInboxKeyboard } from "./useInboxKeyboard";
 import { nextFocusedIndex } from "./keyboard";
-import { btnPrimary, inputField } from "./_internal/chrome";
+import { Button } from "../primitives/button";
+import { Textarea } from "../primitives/textarea";
 import { demoFolders, demoListItems, demoLongThread, demoMailboxes } from "./_internal/demo";
 
 const meta = {
@@ -37,24 +38,18 @@ function ReplyBox() {
     <div>
       <h2 className="text-sm font-semibold text-foreground mb-1">Reply</h2>
       <p className="text-xs text-muted-foreground mb-3">Sending as the original campaign address</p>
-      <textarea
-        className={cnInput()}
+      <Textarea
+        className="min-h-[140px]"
         value={text}
         onChange={(event) => setText(event.target.value)}
         placeholder="Write a plain-text reply…"
         rows={5}
       />
       <div className="mt-3 flex justify-end">
-        <button type="button" className={btnPrimary} disabled={text.trim().length === 0}>
-          Send
-        </button>
+        <Button disabled={text.trim().length === 0}>Send</Button>
       </div>
     </div>
   );
-}
-
-function cnInput() {
-  return `${inputField} min-h-[140px]`;
 }
 
 function FullInbox({
