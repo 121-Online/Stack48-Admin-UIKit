@@ -29,19 +29,20 @@ Index of every component doc. Import map: [`AGENTS.md`](../../AGENTS.md). App mi
 
 ## Admin (`@stack48/admin-ui/admin`)
 
-| Component                         | Docs                                                                         |
-| --------------------------------- | ---------------------------------------------------------------------------- |
-| `AppShell`                        | [AppShell.md](./AppShell.md)                                                 |
-| `Sidebar`                         | [Sidebar.md](./Sidebar.md)                                                   |
-| `PageHeader`                      | [PageHeader.md](./PageHeader.md)                                             |
-| `Topbar`                          | [Topbar.md](./Topbar.md)                                                     |
-| `Breadcrumbs`                     | [Breadcrumbs.md](./Breadcrumbs.md)                                           |
-| `DataTable`                       | [DataTable.md](./DataTable.md)                                               |
-| `Table` (primitives)              | [Table.md](./Table.md)                                                       |
-| `DataTableToolbar`                | [DataTableToolbar.md](./DataTableToolbar.md)                                 |
-| `DataTablePagination`             | [DataTablePagination.md](./DataTablePagination.md)                           |
-| `FilterSelect` / `FilterCheckbox` | [FilterSelect.md](./FilterSelect.md)                                         |
-| `MultiSelectFilter` / `ChipList`  | [MultiSelectFilter.md](./MultiSelectFilter.md), [ChipList.md](./ChipList.md) |
+| Component                               | Docs                                                                         |
+| --------------------------------------- | ---------------------------------------------------------------------------- |
+| `AppShell`                              | [AppShell.md](./AppShell.md)                                                 |
+| `Sidebar`                               | [Sidebar.md](./Sidebar.md)                                                   |
+| `PageHeader`                            | [PageHeader.md](./PageHeader.md)                                             |
+| `Panel` / `SettingsGroup` / `ChartSlot` | [layout.md](./layout.md)                                                     |
+| `Topbar`                                | [Topbar.md](./Topbar.md)                                                     |
+| `Breadcrumbs`                           | [Breadcrumbs.md](./Breadcrumbs.md)                                           |
+| `DataTable`                             | [DataTable.md](./DataTable.md)                                               |
+| `Table` (primitives)                    | [Table.md](./Table.md)                                                       |
+| `DataTableToolbar`                      | [DataTableToolbar.md](./DataTableToolbar.md)                                 |
+| `DataTablePagination`                   | [DataTablePagination.md](./DataTablePagination.md)                           |
+| `FilterSelect` / `FilterCheckbox`       | [FilterSelect.md](./FilterSelect.md)                                         |
+| `MultiSelectFilter` / `ChipList`        | [MultiSelectFilter.md](./MultiSelectFilter.md), [ChipList.md](./ChipList.md) |
 
 ## Inbox (`@stack48/admin-ui/inbox`)
 

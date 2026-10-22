@@ -96,9 +96,9 @@ Types: `ButtonProps`, `InputProps`, `TextareaProps`, `LabelProps`, `CheckboxProp
 
 ### `@stack48/admin-ui/admin`
 
-`AppShell`, `Sidebar`, `Breadcrumb`, `Breadcrumbs`, `PageHeader`, `Topbar`, `DataTable`, `DataTableToolbar`, `DataTablePagination`, `pageWindow`, `FilterCheckbox`, `FilterSelect`, `ChipList`, `MultiSelectFilter`, `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableCell`, `TableMessage`, `DataTableRoot`, `DataTableHead`, `DataTableBody`, `DataTableRow`, `DataTableCell` (GTM aliases of `Table*`), `isActiveRoute`, `defaultRenderLink`.
+`AppShell`, `Sidebar`, `Breadcrumb`, `Breadcrumbs`, `PageHeader`, `Topbar`, `Panel`, `SettingsGroup`, `ChartSlot`, `DataTable`, `DataTableToolbar`, `DataTablePagination`, `pageWindow`, `FilterCheckbox`, `FilterSelect`, `ChipList`, `MultiSelectFilter`, `Table`, `TableHeader`, `TableBody`, `TableRow`, `TableCell`, `TableMessage`, `DataTableRoot`, `DataTableHead`, `DataTableBody`, `DataTableRow`, `DataTableCell` (GTM aliases of `Table*`), `isActiveRoute`, `defaultRenderLink`.
 
-Types: `AppShellProps`, `SidebarNavGroup`, `SidebarNavItem`, `SidebarProps`, `BreadcrumbItem`, `BreadcrumbProps`, `BreadcrumbsProps`, `PageHeaderProps`, `TopbarProps`, `ColumnDef`, `DataTableProps`, `PaginationState`, `SortState`, `DataTableToolbarProps`, `DataTablePaginationProps`, `FilterCheckboxProps`, `FilterOption`, `FilterSelectProps`, `ChipListProps`, `MultiSelectFilterProps`, `TableCellProps`, `TableProps`, `TableRowProps`, `RenderLink`, `RenderLinkProps`.
+Types: `AppShellProps`, `SidebarNavGroup`, `SidebarNavItem`, `SidebarProps`, `BreadcrumbItem`, `BreadcrumbProps`, `BreadcrumbsProps`, `PageHeaderProps`, `TopbarProps`, `PanelProps`, `SettingsGroupProps`, `ChartSlotProps`, `ColumnDef`, `DataTableProps`, `PaginationState`, `SortState`, `DataTableToolbarProps`, `DataTablePaginationProps`, `FilterCheckboxProps`, `FilterOption`, `FilterSelectProps`, `ChipListProps`, `MultiSelectFilterProps`, `TableCellProps`, `TableProps`, `TableRowProps`, `RenderLink`, `RenderLinkProps`.
 
 ### `@stack48/admin-ui/charts`
 

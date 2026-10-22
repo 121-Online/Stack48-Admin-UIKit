@@ -13,6 +13,9 @@ export type { AppShellProps } from "./AppShell";
 export { Sidebar } from "./Sidebar";
 export type { SidebarNavGroup, SidebarNavItem, SidebarProps } from "./Sidebar";
 
+export { ChartSlot, Panel, SettingsGroup } from "./layout";
+export type { ChartSlotProps, PanelProps, SettingsGroupProps } from "./layout";
+
 export { Breadcrumb, Breadcrumbs, PageHeader, Topbar } from "./PageHeader";
 export type {
   BreadcrumbItem,
