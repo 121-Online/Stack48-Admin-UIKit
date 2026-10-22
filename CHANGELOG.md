@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+### Patch Changes
+
+- [`cce2f62`](https://github.com/121-Online/Stack48-Admin-UIKit/commit/cce2f624ce89355682bc060bcc2eea3d6858665a) Thanks [@JamesFNGibbons](https://github.com/JamesFNGibbons)! - Add Panel, SettingsGroup, and ChartSlot for bordered surfaces, settings groups, and capped charts.
+
 ## 0.1.0
 
 ### Minor Changes
